@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Chrome Bootstrap</title>
+	<link rel="stylesheet" type="text/css" href="../vendor/chrome-bootstrap.css" />
+	<script src="../vendor/jquery.min.js" type="text/javascript"></script>
+	<script src="../vendor/underscore-min.js" type="text/javascript"></script>
+	<script src="../pep.js" type="text/javascript"></script>
+	<script src="manage.js" type="text/javascript"></script>
+	<script src="menu.js" type="text/javascript"></script>
+</head>
+<body class="chrome-bootstrap">
+	<div class="frame">
+		<div class="navigation">
+			<h1>PEP</h1>
+			<ul class="menu">
+				<li class="selected"><a href="#keys">Keys</a></li>
+				<li><a href="#preferences">Preferences</a></li>
+			</ul>
+		</div>
+		<div class="mainview view">
+			<div id="keys" class="selected">
+				<header><h1>keys</h1></header>
+				<header><h2>Public Keys</h2></header>
+				<div class="content">
+					<table id="public_keys_table">
+						<thead>
+							<th>User ID</th>
+							<th>Key ID</th>
+							<th>Date</th>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div id="preferences">
+				<header><h1>Preferences</h1></header>
+				<div class="content"><p>Test</p></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+
+    "name": "Pretty Easy PGP",
+    "description": "Extension providing a public PGP API and key management interface",
+    "version": "0.1",
+
+    "background": {
+        "scripts": [
+        	"vendor/openpgp.min.js",
+        	"vendor/underscore-min.js",
+            "core/pgp_service.js",
+            "chrome_interface.js"
+    	]
+    },
+
+    "options_page": "settings/manage.html"
+}
