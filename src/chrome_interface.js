@@ -11,6 +11,10 @@
             PGPService.importKey(options.armored_key);
         },
 
+        'removeKey': function(options) {
+            PGPService.removeKey(options.key_id);
+        },
+
         /** Crypto service **/        
         'encrypt': function(options) {
             options = _.defaults( options, { sign: true } );

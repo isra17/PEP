@@ -47,14 +47,27 @@
             });
         },
 
-        importKey: function(armored_key) {
-            var result = openpgp.key.readArmored(armored_key);
+        importKey: function(armoredKey) {
+            var result = openpgp.key.readArmored(armoredKey);
             this.localKeyring.keys = this.localKeyring.keys.concat(result.keys);            
             this.localKeyring.store();
 
             if (result.err && result.err.length) {
                 throw new Error("One key couldn't be imported");
             }
+        },
+
+        removeKey: function(keyId) {
+            var keys = this.localKeyring.keys;
+            for (var i = 0; i < keys.length;) {
+                if (keys[i].primaryKey.getKeyId().toHex().toUpperCase() == keyId.toUpperCase()) {
+                    keys.splice(i,1);
+                } else {
+                    i++;
+                }
+            }
+            
+            this.localKeyring.store();
         },
 
         encrypt: function (recipients, message) {

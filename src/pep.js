@@ -15,8 +15,12 @@
             callPGPService('getPublicKeysInfo', undefined, callback);
         },
 
-        importKey: function(armored_key, callback) {
-            callPGPService('importKey', {armored_key: armored_key}, callback);
+        importKey: function(armoredKey, callback) {
+            callPGPService('importKey', {armored_key: armoredKey}, callback);
+        },
+
+        removeKey: function(keyId, callback) {
+            callPGPService('removeKey', {key_id: keyId}, callback);
         },
 
         encrypt: function (recipients, message, callback) {
