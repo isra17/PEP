@@ -2,10 +2,16 @@
     'use strict';
 
     var handlers = {
+        /** key management **/
         'getPublicKeysInfo': function() {
             return PGPService.getPublicKeysInfo();
         },
 
+        'importKey': function(options) {
+            PGPService.importKey(options.armored_key);
+        },
+
+        /** Crypto service **/        
         'encrypt': function(options) {
             options = _.defaults( options, { sign: true } );
             return PGPService.encrypt( options.recipients, options.data );
@@ -28,7 +34,11 @@
     var messageHandler = function(request,sender,sendResponse) {
         var handler = handlers[ request.action ];
         if (handler) {
-            sendResponse( handler( request.options ) );
+            try {
+                sendResponse( handler( request.options ) );
+            } catch(e) {
+                sendResponse( {error: e.toString() } );
+            }
         }
     };
 

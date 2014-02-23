@@ -47,6 +47,16 @@
             });
         },
 
+        importKey: function(armored_key) {
+            var result = openpgp.key.readArmored(armored_key);
+            this.localKeyring.keys = this.localKeyring.keys.concat(result.keys);            
+            this.localKeyring.store();
+
+            if (result.err && result.err.length) {
+                throw new Error("One key couldn't be imported");
+            }
+        },
+
         encrypt: function (recipients, message) {
             publicKeys = getPublicKeyFor( recipients );
             return openpgp.write_encrypted_message( publicKeys.keys, message );

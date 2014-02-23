@@ -14,5 +14,5 @@
     	]
     },
 
-    "options_page": "settings/manage.html"
+    "options_page": "settings/settings.html"
 }

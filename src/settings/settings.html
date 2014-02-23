@@ -4,13 +4,14 @@
 	<meta charset="utf-8" />
 	<title>Chrome Bootstrap</title>
 	<link rel="stylesheet" type="text/css" href="../vendor/chrome-bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="settings.css" />
 	<script src="../vendor/jquery.min.js" type="text/javascript"></script>
 	<script src="../vendor/underscore-min.js" type="text/javascript"></script>
 	<script src="../pep.js" type="text/javascript"></script>
-	<script src="manage.js" type="text/javascript"></script>
+	<script src="settings.js" type="text/javascript"></script>
 	<script src="menu.js" type="text/javascript"></script>
 </head>
-<body class="chrome-bootstrap">
+<body class="chrome-bootstrap">	
 	<div class="frame">
 		<div class="navigation">
 			<h1>PEP</h1>
@@ -24,7 +25,7 @@
 				<header><h1>keys</h1></header>
 				<header><h2>Public Keys</h2></header>
 				<div class="content">
-					<table id="public_keys_table">
+					<table id="public-keys-table">
 						<thead>
 							<th>User ID</th>
 							<th>Key ID</th>
@@ -33,6 +34,22 @@
 						<tbody>
 						</tbody>
 					</table>
+					<button id="import-key">Import key</button>
+					<div id="import-key-overlay" class="overlay" style="display: none;">
+						<div class="page">
+							<div class="close-button"></div>
+							<h1>Import key</h1>
+							<div class="content-area">
+								<textarea id="import-key-armored"></textarea>
+							</div>
+							<div class="action-area">
+				  				<div class="button-strip" reversed="">
+				  					<button id="import-key-import" class="default-button">Import</button>
+				    				<button id="import-key-cancel">Cancel</button>
+				    			</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div id="preferences">
@@ -40,6 +57,6 @@
 				<div class="content"><p>Test</p></div>
 			</div>
 		</div>
-	</div>
+	</div>	
 </body>
 </html>
